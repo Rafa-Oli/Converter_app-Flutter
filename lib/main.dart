@@ -6,9 +6,11 @@ import 'dart:convert';
 const request = 'https://api.hgbrasil.com/finance?key=c9ed277d';
 void main() async {
   runApp(MaterialApp(
-    home: Home(),
-    theme: ThemeData(hintColor: Colors.deepOrange, primaryColor: Colors.white),
-  ));
+      home: Home(),
+      theme: ThemeData(
+        hintColor: Colors.deepOrange,
+        primaryColor: Colors.white,
+      )));
 }
 
 Future<Map> getData() async {
@@ -25,6 +27,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   double dolar;
   double euro;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +35,10 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text("\$ Conversor \$"),
+        textTheme: TextTheme(
+          headline6: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),
+        ),
         backgroundColor: Colors.deepOrangeAccent,
         centerTitle: true,
       ),
@@ -67,36 +74,23 @@ class _HomeState extends State<Home> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Icon(Icons.monetization_on,
-                          size: 150.0, color: Colors.deepOrange),
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: "Reais",
-                            labelStyle: TextStyle(color: Colors.deepOrange),
-                            border: OutlineInputBorder(),
-                            prefixText: "R\$"),
-                        style:
-                            TextStyle(color: Colors.deepOrange, fontSize: 25.0),
-                      ),
+                          size: 150.0, color: Colors.deepOrangeAccent),
                       Divider(),
                       TextField(
-                        decoration: InputDecoration(
-                            labelText: "Dólares",
-                            labelStyle: TextStyle(color: Colors.deepOrange),
-                            border: OutlineInputBorder(),
-                            prefixText: "US\$"),
-                        style:
-                            TextStyle(color: Colors.deepOrange, fontSize: 25.0),
-                      ),
-                      Divider(),
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: "Euros",
-                            labelStyle: TextStyle(color: Colors.deepOrange),
-                            border: OutlineInputBorder(),
-                            prefixText: "€\$"),
-                        style:
-                            TextStyle(color: Colors.deepOrange, fontSize: 25.0),
-                      ),
+                          decoration: InputDecoration(
+                              labelText: "Reais",
+                              labelStyle:
+                                  TextStyle(color: Colors.deepOrangeAccent),
+                              enabledBorder: const OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Colors.deepOrangeAccent, width: 1),
+                              ),
+                              border: OutlineInputBorder(),
+                              prefixText: "R\$"),
+                          style: TextStyle(
+                            color: Colors.deepOrangeAccent,
+                            fontSize: 25.0,
+                          )),
                     ],
                   ),
                 );
