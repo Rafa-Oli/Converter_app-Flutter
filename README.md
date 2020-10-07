@@ -1,5 +1,16 @@
 # Converter
 
+#### Aplicativo para conversão de moeda: Dólar, Reais, Euros:
+ - Utilização de Requisição de dados do servidor HG Finance
+<img height="450" align="center" src="https://imgur.com/rYlzsQz.gif" alt="projeto" />
+
+
+
+
+
+
+
+
 A new Flutter project.
 
 ## Getting Started
