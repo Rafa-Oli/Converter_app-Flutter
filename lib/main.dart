@@ -7,6 +7,7 @@ const request = 'https://api.hgbrasil.com/finance?key=c9ed277d';
 void main() async {
   runApp(MaterialApp(
     home: Home(),
+    theme: ThemeData(hintColor: Colors.deepOrange, primaryColor: Colors.white),
   ));
 }
 
@@ -22,6 +23,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  double dolar;
+  double euro;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +32,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text("\$ Conversor \$"),
-        backgroundColor: Colors.indigo[900],
+        backgroundColor: Colors.deepOrangeAccent,
         centerTitle: true,
       ),
       body: FutureBuilder<Map>(
@@ -41,7 +44,8 @@ class _HomeState extends State<Home> {
               return Center(
                   child: Text(
                 "Carregando Dados...",
-                style: TextStyle(color: Colors.indigo[900], fontSize: 25.0),
+                style:
+                    TextStyle(color: Colors.deepOrangeAccent, fontSize: 25.0),
                 textAlign: TextAlign.center,
               ));
             default:
@@ -49,11 +53,53 @@ class _HomeState extends State<Home> {
                 return Center(
                     child: Text(
                   "Erro ao carregar Dados :(",
-                  style: TextStyle(color: Colors.indigo[900], fontSize: 25.0),
+                  style:
+                      TextStyle(color: Colors.deepOrangeAccent, fontSize: 25.0),
                   textAlign: TextAlign.center,
                 ));
               } else {
-                return Container(color: Colors.green);
+                dolar = snapshot.data["results"]["currencies"]["USD"]["buy"];
+                euro = snapshot.data["results"]["currencies"]["EUR"]["buy"];
+
+                return SingleChildScrollView(
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Icon(Icons.monetization_on,
+                          size: 150.0, color: Colors.deepOrange),
+                      TextField(
+                        decoration: InputDecoration(
+                            labelText: "Reais",
+                            labelStyle: TextStyle(color: Colors.deepOrange),
+                            border: OutlineInputBorder(),
+                            prefixText: "R\$"),
+                        style:
+                            TextStyle(color: Colors.deepOrange, fontSize: 25.0),
+                      ),
+                      Divider(),
+                      TextField(
+                        decoration: InputDecoration(
+                            labelText: "Dólares",
+                            labelStyle: TextStyle(color: Colors.deepOrange),
+                            border: OutlineInputBorder(),
+                            prefixText: "US\$"),
+                        style:
+                            TextStyle(color: Colors.deepOrange, fontSize: 25.0),
+                      ),
+                      Divider(),
+                      TextField(
+                        decoration: InputDecoration(
+                            labelText: "Euros",
+                            labelStyle: TextStyle(color: Colors.deepOrange),
+                            border: OutlineInputBorder(),
+                            prefixText: "€\$"),
+                        style:
+                            TextStyle(color: Colors.deepOrange, fontSize: 25.0),
+                      ),
+                    ],
+                  ),
+                );
               }
           }
         },
