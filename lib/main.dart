@@ -86,7 +86,39 @@ class _HomeState extends State<Home> {
                                     color: Colors.deepOrangeAccent, width: 1),
                               ),
                               border: OutlineInputBorder(),
-                              prefixText: "R\$"),
+                              prefixText: "R\$ "),
+                          style: TextStyle(
+                            color: Colors.deepOrangeAccent,
+                            fontSize: 25.0,
+                          )),
+                      Divider(),
+                      TextField(
+                          decoration: InputDecoration(
+                              labelText: "Dólares",
+                              labelStyle:
+                                  TextStyle(color: Colors.deepOrangeAccent),
+                              enabledBorder: const OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Colors.deepOrangeAccent, width: 1),
+                              ),
+                              border: OutlineInputBorder(),
+                              prefixText: "US\$ "),
+                          style: TextStyle(
+                            color: Colors.deepOrangeAccent,
+                            fontSize: 25.0,
+                          )),
+                      Divider(),
+                      TextField(
+                          decoration: InputDecoration(
+                              labelText: "Euros",
+                              labelStyle:
+                                  TextStyle(color: Colors.deepOrangeAccent),
+                              enabledBorder: const OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Colors.deepOrangeAccent, width: 1),
+                              ),
+                              border: OutlineInputBorder(),
+                              prefixText: "€ "),
                           style: TextStyle(
                             color: Colors.deepOrangeAccent,
                             fontSize: 25.0,
