@@ -1,4 +1,4 @@
-# Converter
+# Converter :moneybag:
 
 #### Aplicativo para conversão de moeda: Dólar, Reais, Euros:
  - Utilização de Requisição de dados do servidor HG Finance
